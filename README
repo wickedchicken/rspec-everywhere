@@ -1,0 +1,9 @@
+This is a framework intended to demonstrate how RSpec can be used to test executables written by other languages. As RSpec is very well maintained and lets one use the niceties of Ruby, it is often a better choice to use RSpec instead of the language's native testing framework (if one even exists at all).
+
+The file rspec_tests.rb contains a sample set of tests which ensure the 'echo' program is functioning properly. Note that the framework uses exec() (bypassing the shell and any shell globbing). This means you don't have to worry about escaping shell-unsafe characters, but discourages shell expansion in arguments (~, for example). Also, if the program you want to test is in the current directory, append "./" in front of the executable name (i.e., "./a.out").
+
+Type the following to run the battery of tests (the -c adds color):
+
+rspec -c rspec_tests.rb
+
+In the future we intend to split out the spawn_prog functionality into a separate file to clean things up a bit.
